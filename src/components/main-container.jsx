@@ -1,5 +1,6 @@
+import "../styles/main-container.css";
 function MainContainer({ children }) {
-  return <>{children}</>;
+  return <div className="main-container">{children}</div>;
 }
 
 export default MainContainer;

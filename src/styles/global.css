@@ -1,2 +1,30 @@
 /*************** RESET  *********************/
 @import url("reset.css");
+
+/*************** FONTS  *********************/
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+/*************** VARIABLES  *********************/
+:root {
+  --primary-font: "Oxygen", sans-serif;
+  --secondary-font: "Raleway", sans-serif;
+}
+
+/*************** GRID  *********************/
+.col-4 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 33.333333%;
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+}
+.col-8 {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 66.666667%;
+  flex: 0 0 66.666667%;
+  max-width: 66.666667%;
+}
+
+body {
+  font-family: var(--primary-font);
+}
