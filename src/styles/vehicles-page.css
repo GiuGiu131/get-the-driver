@@ -1,0 +1,7 @@
+.vehicles-page-list li div {
+  display: inline-flex;
+  width: 100%;
+}
+.vehicles-page-list li div img {
+  padding-right: 1rem;
+}
