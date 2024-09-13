@@ -75,25 +75,27 @@ function DriversList() {
   return (
     <div className="drivers-list">
       <p> DriversList</p>
-      {users.map((user, index) => (
-        <ul>
-          <li key={index}>
-            <p>
-              {user.forename} {user.surname}
-              <span> {user.vehicleRegistration}</span>
-              <span> {resultTraces[index]}</span>
-            </p>
+      <ul>
+        {users.map((user, index) => {
+          return (
+            <li key={user.driverID}>
+              <p>
+                {user.forename} {user.surname}
+                <span> {user.vehicleRegistration}</span>
+                <span> {resultTraces[index]}</span>
+              </p>
 
-            <div className="driver-list-calendar">
-              <WeekCalendar
-                users={users}
-                activeDay={activityDATE[index]}
-                indexX={index}
-              />
-            </div>
-          </li>
-        </ul>
-      ))}
+              <div className="driver-list-calendar">
+                <WeekCalendar
+                  users={users}
+                  activeDay={activityDATE[index]}
+                  indexX={index}
+                />
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }

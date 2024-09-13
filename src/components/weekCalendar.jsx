@@ -8,9 +8,9 @@ function WeekCalendar({ activeDay }) {
         {activeDay.map((type, index) => {
           return (
             <div
-              style={
-                type === activeD[offset] ? { color: "red" } : { color: "green" }
-              }
+              //   style={
+              //     type === activeD[offset] ? { color: "red" } : { color: "green" }
+              //   }
               key={index}
             >
               {type}
