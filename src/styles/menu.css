@@ -4,4 +4,37 @@
   flex: 0 0 33.333333%;
   max-width: 33.333333%;
   width: 33.333333%;
+  border-right: 3px solid var(--main-color);
+  padding: 2rem 1.5rem;
+  height: 100vh;
+}
+
+.active {
+  background-color: var(--gray-hover-color);
+}
+.active img {
+  display: none;
+}
+
+.menu-list-item {
+  padding-bottom: 1.5rem;
+}
+
+.menu-list-item a {
+  color: var(--main-color);
+  font-family: var(--secondary-font);
+  font-weight: bold;
+  font-size: 2.4rem;
+  display: inline-flex;
+  border-radius: 10px;
+  transition: all 0.3s;
+  padding: 0.5rem 1rem;
+}
+.menu-list-item a img {
+  padding-right: 1.5rem;
+  transition: all 0.3s;
+}
+
+.menu-list-item a:hover {
+  background-color: var(--gray-hover-color);
 }

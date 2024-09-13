@@ -1,25 +1,21 @@
 import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import { BASE_URL } from "../utils/constants";
+import homeIcon from "../assets/icons/home-icon.svg";
+import driversIcon from "../assets/icons/drivers-icon.svg";
+import vehiclesIcon from "../assets/icons/vehicles-icon.svg";
+import aboutIcon from "../assets/icons/about-icon.svg";
 import axios from "axios";
 import "../styles/menu.css";
 
-// import { fetchMenuItems, apiClient } from "../services/apiService";
-// import { fetchDataMenu } from "../services/apiService";
-// import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 function Menu() {
-  // const fetchData = async () => {
-  //   try {
-  //     const response = await apiClient.get("/menu");
-  //     console.log(response.data);
-  //   } catch (error) {
-  //     console.error("Error fetching data:", error);
-  //   }
-  // };
   const [menuItems, setMenuItems] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const [users, setUsers] = useState([]);
+
+  const icons = [homeIcon, driversIcon, vehiclesIcon, aboutIcon];
 
   useEffect(() => {
     axios
@@ -47,22 +43,18 @@ function Menu() {
   // if (loading) return <p>Loading...</p>;
   // if (error) return <p>Error loading data!</p>;
   return (
-    <div className="menu">
-      <ul>
-        {/* {menuItems} */}
-        {/* {menuItems.map((li, index) => (
-          <li key={index}>{li.title}</li>
-        ))} */}
-        {/* {console.log(users)} */}
-
+    <aside className="menu">
+      <ul className="menu-list">
         {users.map((user, index) => (
-          <li key={index}>
-            {user.title}: {user.url}
-            {/* {console.log(user)} */}
+          <li key={index} className="menu-list-item">
+            <NavLink to={user.url}>
+              <img src={icons[index]} />
+              <span>{user.title}</span>
+            </NavLink>
           </li>
         ))}
       </ul>
-    </div>
+    </aside>
   );
 }
 
