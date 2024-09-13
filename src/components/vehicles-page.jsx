@@ -1,5 +1,11 @@
+import MainTitle from "../ui/main-title";
+
 function VehiclesPage() {
-  return <div>VehiclesPage</div>;
+  return (
+    <div>
+      <MainTitle>Vehicles</MainTitle>
+    </div>
+  );
 }
 
 export default VehiclesPage;

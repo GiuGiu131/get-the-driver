@@ -4,6 +4,8 @@ import axios from "axios";
 
 import "../styles/drivers-list.css";
 import WeekCalendar from "./weekCalendar";
+import MainTitle from "../ui/main-title";
+import Content from "../ui/content";
 
 function DriversList() {
   const [users, setUsers] = useState([]);
@@ -74,25 +76,28 @@ function DriversList() {
 
   return (
     <div className="drivers-list">
-      <p> DriversList</p>
+      <MainTitle>Drivers Stats</MainTitle>
+
       <ul>
         {users.map((user, index) => {
           return (
-            <li key={user.driverID}>
-              <p>
-                {user.forename} {user.surname}
-                <span> {user.vehicleRegistration}</span>
-                <span> {resultTraces[index]}</span>
-              </p>
+            <Content key={user.driverID}>
+              <li>
+                <p>
+                  {user.forename} {user.surname}
+                  <span> {user.vehicleRegistration}</span>
+                  <span> {resultTraces[index]}</span>
+                </p>
 
-              <div className="driver-list-calendar">
-                <WeekCalendar
-                  users={users}
-                  activeDay={activityDATE[index]}
-                  indexX={index}
-                />
-              </div>
-            </li>
+                <div className="driver-list-calendar">
+                  <WeekCalendar
+                    users={users}
+                    activeDay={activityDATE[index]}
+                    indexX={index}
+                  />
+                </div>
+              </li>
+            </Content>
           );
         })}
       </ul>
