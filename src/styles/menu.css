@@ -6,7 +6,7 @@
   width: 33.333333%;
   border-right: 3px solid var(--main-color);
   padding: 2rem 1.5rem;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .active {

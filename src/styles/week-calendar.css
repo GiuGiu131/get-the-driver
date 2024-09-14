@@ -3,10 +3,14 @@
 }
 .week-calendar {
   padding: 0 0.5rem;
+  text-align: center;
+}
+.week-calendar-day {
+  font-size: 1rem;
 }
 .week-calendar-box {
   background-color: var(--border-widget-color);
-  width: 25px;
-  height: 25px;
-  border-radius: 10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 6px;
 }

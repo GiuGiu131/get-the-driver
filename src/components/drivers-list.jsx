@@ -64,6 +64,7 @@ function DriversList() {
       });
 
       let total = durationMap.reduce((partialSum, a) => partialSum + a, 0);
+      if (total === 0 || total == undefined) return 0;
       return total;
     }
   });
@@ -99,6 +100,7 @@ function DriversList() {
                   <span className="drivers-list-time">
                     <img className="drivers-list-time-icon" src={timeIcon} />
                     {resultTraces[index]}
+                    {console.log(resultTraces[index])}
                   </span>
                 </p>
 
