@@ -1,18 +1,30 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
+import { fetchMenuItems } from "./services/apiService";
 import Header from "./components/header";
 import MainContainer from "./ui/main-container";
 import PageContainer from "./ui/page-container";
-import Menu from "./components/menu";
+import MenuDesktop from "./ui/menu-desktop";
 import DriversList from "./components/drivers-list";
 import DriversPage from "./components/drivers-page";
 import VehiclesPage from "./components/vehicles-page";
 import About from "./components/about-page";
+import { MenuProvider } from "./context/MenuContext";
+import MenuMobile from "./ui/menu-mobile";
 
 function App() {
+  const [menuItems, setMenuItems] = useState([]);
   const [drivers, setDrivers] = useState([]);
   const [vehicles, setVehicles] = useState([]);
+
+  useEffect(() => {
+    fetchMenuItems()
+      .then((res) => {
+        setMenuItems(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   useEffect(() => {
     axios
@@ -33,11 +45,14 @@ function App() {
       .catch((err) => console.log(err));
   }, []);
   return (
-    <>
-      <Header />
+    <MenuProvider>
       <BrowserRouter>
+        <Header>
+          <MenuMobile />
+        </Header>
+
         <MainContainer>
-          <Menu />
+          <MenuDesktop />
           <PageContainer>
             <Routes>
               <Route path="/" element={<DriversList />} />
@@ -54,7 +69,7 @@ function App() {
           </PageContainer>
         </MainContainer>
       </BrowserRouter>
-    </>
+    </MenuProvider>
   );
 }
 

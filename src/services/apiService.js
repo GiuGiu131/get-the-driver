@@ -9,6 +9,13 @@ const client = axios.create({
     "Content-Type": "application/json",
   },
 });
+
+export async function fetchMenuItems() {
+  const URLMENU = `${BASE_URL}/data/menu.json`;
+  const response = await axios.get(URLMENU);
+  return response.data;
+}
+
 // const apiClient = axios.create({
 //   baseURL: "http://localhost:5173/data",
 //   headers: {

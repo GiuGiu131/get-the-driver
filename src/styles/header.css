@@ -2,6 +2,9 @@
   width: 100%;
   padding: 1.5rem;
   border-bottom: 3px solid var(--main-color);
+  display: inline-flex;
+  justify-content: space-between;
+  position: relative;
 }
 
 .header-logo {

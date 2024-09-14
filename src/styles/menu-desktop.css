@@ -1,0 +1,17 @@
+.menu-desktop {
+  -webkit-box-flex: 0;
+  -ms-flex: 0 0 33.333333%;
+  flex: 0 0 33.333333%;
+  max-width: 33.333333%;
+  width: 33.333333%;
+  border-right: 3px solid var(--main-color);
+  padding: 2rem 1.5rem;
+  min-height: 100vh;
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .menu-desktop {
+    display: block;
+  }
+}
