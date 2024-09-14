@@ -1,2 +1,35 @@
-.drivers-list {
+.drivers-list-item {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.drivers-list-item p {
+  display: inline-flex;
+}
+.drivers-list-reg-icon {
+  max-width: 20px;
+}
+.drivers-list-name {
+  padding-right: 1rem;
+}
+.drivers-list-reg {
+  display: inline-flex;
+  padding: 0 1rem;
+}
+.drivers-list-time {
+  display: inline-flex;
+  padding: 0 1rem;
+}
+.drivers-list-time-icon {
+  max-width: 15px;
+  margin-right: 0.6rem;
+  object-fit: contain;
+}
+.drivers-list-reg-icon {
+  max-width: 15px;
+  margin-right: 0.8rem;
+  object-fit: contain;
+}
+.driver-list-calendar {
+  display: inline-flex;
 }

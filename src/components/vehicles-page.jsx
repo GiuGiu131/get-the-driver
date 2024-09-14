@@ -4,7 +4,6 @@ import vehicleStatIcon from "../assets/icons/vehicles-stats.svg";
 import "../styles/vehicles-page.css";
 
 function VehiclesPage({ vehicles }) {
-  console.log(vehicles);
   return (
     <div>
       <MainTitle>Vehicles</MainTitle>

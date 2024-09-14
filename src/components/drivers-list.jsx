@@ -6,6 +6,8 @@ import "../styles/drivers-list.css";
 import WeekCalendar from "./weekCalendar";
 import MainTitle from "../ui/main-title";
 import Content from "../ui/content";
+import vehicleStatIcon from "../assets/icons/vehicles-stats.svg";
+import timeIcon from "../assets/icons/time-icon.svg";
 
 function DriversList() {
   const [users, setUsers] = useState([]);
@@ -82,11 +84,22 @@ function DriversList() {
         {users.map((user, index) => {
           return (
             <Content key={user.driverID}>
-              <li>
+              <li className="drivers-list-item">
                 <p>
-                  {user.forename} {user.surname}
-                  <span> {user.vehicleRegistration}</span>
-                  <span> {resultTraces[index]}</span>
+                  <span className="drivers-list-name">
+                    {user.forename} {user.surname}
+                  </span>
+                  <span className="drivers-list-reg">
+                    <img
+                      className="drivers-list-reg-icon"
+                      src={vehicleStatIcon}
+                    />
+                    {user.vehicleRegistration}
+                  </span>
+                  <span className="drivers-list-time">
+                    <img className="drivers-list-time-icon" src={timeIcon} />
+                    {resultTraces[index]}
+                  </span>
                 </p>
 
                 <div className="driver-list-calendar">
