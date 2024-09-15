@@ -13,8 +13,11 @@
   padding-right: 1rem;
 }
 .drivers-list-reg {
-  display: inline-flex;
-  padding: 0 1rem;
+  display: flex;
+  padding: 0 0rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .drivers-list-time {
   display: inline-flex;
@@ -32,4 +35,11 @@
 }
 .driver-list-calendar {
   display: inline-flex;
+}
+
+@media (min-width: 768px) {
+  .drivers-list-reg {
+    display: inline-flex;
+    padding: 0 1rem;
+  }
 }

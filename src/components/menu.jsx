@@ -16,6 +16,7 @@ function Menu() {
 
   const { menuItems } = useMenuItems();
   const icons = [homeIcon, driversIcon, vehiclesIcon, aboutIcon];
+  const iconsMobile = [];
 
   // useEffect(() => {
   //   fetchMenuItems()
