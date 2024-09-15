@@ -42,6 +42,13 @@
   display: inline-flex;
 }
 
+.driver-list-header {
+  display: inline-flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
 @media (min-width: 768px) {
   .drivers-list-reg {
     display: flex;
@@ -58,4 +65,12 @@
   .drivers-list-time-icon {
     margin-right: 0.6rem;
   }
+}
+
+.loading,
+.no-found {
+  color: var(--tertiary-list-color);
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-family: var(--primary-font);
 }

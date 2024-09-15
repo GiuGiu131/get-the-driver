@@ -1,0 +1,19 @@
+.search-input-container {
+  display: inline-flex;
+  background: var(--bg-color-content);
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+}
+.search-icon {
+  width: 15px;
+  margin-right: 5px;
+}
+.search-input {
+  outline: none;
+  border: none;
+  background: var(--bg-color-content);
+  color: var(--tertiary-list-color);
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-family: var(--primary-font);
+}

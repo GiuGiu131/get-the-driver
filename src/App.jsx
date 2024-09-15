@@ -18,6 +18,9 @@ function App() {
   const [drivers, setDrivers] = useState([]);
   const [vehicles, setVehicles] = useState([]);
 
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
     fetchMenuItems()
       .then((res) => {
@@ -41,8 +44,12 @@ function App() {
 
         setDrivers(drivs);
         setVehicles(vehics);
+        setLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setError(err);
+      });
   }, []);
   return (
     <MenuProvider>
@@ -55,7 +62,10 @@ function App() {
           <MenuDesktop />
           <PageContainer>
             <Routes>
-              <Route path="/" element={<DriversList />} />
+              <Route
+                path="/"
+                element={<DriversList loading={loading} error={error} />}
+              />
               <Route
                 path="drivers"
                 element={<DriversPage drivers={drivers} />}
