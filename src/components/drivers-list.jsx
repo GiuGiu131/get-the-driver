@@ -86,23 +86,23 @@ function DriversList() {
           return (
             <Content key={user.driverID}>
               <li className="drivers-list-item">
-                <p>
-                  <span className="drivers-list-name">
-                    {user.forename} {user.surname}
-                  </span>
-                  <span className="drivers-list-reg">
-                    <img
-                      className="drivers-list-reg-icon"
-                      src={vehicleStatIcon}
-                    />
-                    {user.vehicleRegistration}
-                  </span>
-                  <span className="drivers-list-time">
-                    <img className="drivers-list-time-icon" src={timeIcon} />
-                    {resultTraces[index]}
-                    {console.log(resultTraces[index])}
-                  </span>
-                </p>
+                {/* <p> */}
+                <span className="drivers-list-name">
+                  {user.forename} {user.surname}
+                </span>
+                <span className="drivers-list-reg">
+                  <img
+                    className="drivers-list-reg-icon"
+                    src={vehicleStatIcon}
+                  />
+                  {user.vehicleRegistration}
+                </span>
+                <span className="drivers-list-time">
+                  <img className="drivers-list-time-icon" src={timeIcon} />
+                  {resultTraces[index]}
+                  {console.log(resultTraces[index])}
+                </span>
+                {/* </p> */}
 
                 <div className="driver-list-calendar">
                   <WeekCalendar

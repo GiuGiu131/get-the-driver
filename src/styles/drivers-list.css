@@ -11,6 +11,8 @@
 }
 .drivers-list-name {
   padding-right: 1rem;
+  max-width: 30px;
+  margin-right: 3rem;
 }
 .drivers-list-reg {
   display: flex;
@@ -20,12 +22,15 @@
   align-items: center;
 }
 .drivers-list-time {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   padding: 0 1rem;
+  justify-content: center;
+  align-items: center;
 }
 .drivers-list-time-icon {
   max-width: 15px;
-  margin-right: 0.6rem;
+  margin-right: 0;
   object-fit: contain;
 }
 .drivers-list-reg-icon {
@@ -39,7 +44,18 @@
 
 @media (min-width: 768px) {
   .drivers-list-reg {
-    display: inline-flex;
-    padding: 0 1rem;
+    display: flex;
+    flex-direction: row;
+  }
+  .drivers-list-time {
+    display: flex;
+    flex-direction: row;
+  }
+  .drivers-list-name {
+    max-width: 100%;
+    margin-right: 0;
+  }
+  .drivers-list-time-icon {
+    margin-right: 0.6rem;
   }
 }
