@@ -10,9 +10,6 @@ import axios from "axios";
 import "../styles/menu.css";
 
 function Menu() {
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
   const { menuItems } = useMenuItems();
 
   const [items, setItems] = useState([]);

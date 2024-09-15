@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from "axios";
-import { fetchMenuItems } from "./services/apiService";
+import { fetchUsers } from "./services/apiService";
 import Header from "./components/header";
 import MainContainer from "./ui/main-container";
 import PageContainer from "./ui/page-container";
@@ -14,7 +13,7 @@ import { MenuProvider } from "./context/MenuContext";
 import MenuMobile from "./ui/menu-mobile";
 
 function App() {
-  const [menuItems, setMenuItems] = useState([]);
+  const [users, setUsers] = useState([]);
   const [drivers, setDrivers] = useState([]);
   const [vehicles, setVehicles] = useState([]);
 
@@ -22,23 +21,14 @@ function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetchMenuItems()
+    fetchUsers()
       .then((res) => {
-        setMenuItems(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
+        setUsers(res.data);
 
-  useEffect(() => {
-    axios
-      .get("/data/drivers.json")
-      .then((res) => {
-        // setUsers(res.data.data);
-        console.log(res.data.data);
-        const drivs = res.data.data.map(
+        const drivs = res.data.map(
           (driv) => `${driv.forename} ${driv.surname}`
         );
-        const vehics = res.data.data.map(
+        const vehics = res.data.map(
           (vehics) => `${vehics.vehicleRegistration}`
         );
 
@@ -64,7 +54,9 @@ function App() {
             <Routes>
               <Route
                 path="/"
-                element={<DriversList loading={loading} error={error} />}
+                element={
+                  <DriversList users={users} loading={loading} error={error} />
+                }
               />
               <Route
                 path="drivers"

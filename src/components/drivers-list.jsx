@@ -1,24 +1,17 @@
 import { useEffect, useState } from "react";
-import { BASE_URL } from "../utils/constants";
-import axios from "axios";
-
-import "../styles/drivers-list.css";
 import WeekCalendar from "./weekCalendar";
 import MainTitle from "../ui/main-title";
 import Content from "../ui/content";
+import Search from "./search";
 import vehicleStatIcon from "../assets/icons/vehicles-stats.svg";
 import timeIcon from "../assets/icons/time-icon.svg";
+import "../styles/drivers-list.css";
 
-import Search from "./search";
-
-function DriversList({ loading, error }) {
-  const [users, setUsers] = useState([]);
+function DriversList({ users, loading, error }) {
   const start = new Date("2021-02-01").toISOString().split("T")[0];
   const end = new Date("2021-02-07").toISOString().split("T")[0];
   const [filteredUsers, setFilteredUsers] = useState(users);
   const [searchItem, setSearchItem] = useState("");
-  // const [loading, setLoading] = useState(true);
-  // const [error, setError] = useState(null);
 
   const handleInputChange = (e) => {
     const searchTerm = e.target.value;
@@ -40,22 +33,11 @@ function DriversList({ loading, error }) {
     }
   }, [searchItem.length, users]);
 
-  useEffect(() => {
-    axios
-      .get("/data/drivers.json")
-      .then((res) => {
-        setUsers(res.data.data);
-
-        console.log(res.data.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
-
-  function validPeriod(start, end, bookings) {
+  function validPeriod(start, end, activeDate) {
     var valid = true;
 
-    for (var i = 0; i < bookings.length; i++) {
-      var date = bookings[i];
+    for (var i = 0; i < activeDate.length; i++) {
+      var date = activeDate[i];
       if (start <= date && date <= end) {
         valid = false;
         break;
@@ -65,39 +47,38 @@ function DriversList({ loading, error }) {
     return valid;
   }
 
-  let resultTraces = users.map((user, index) => {
-    let activity = user.traces.map((trs, ind) => trs.activity);
-    let activityDate = user.traces.map((trs, ind) => trs.date);
+  let resultTraces = users.map((user) => {
+    let activity = user.traces.map((trs) => trs.activity);
+    let activityDate = user.traces.map((trs) => trs.date);
+
     let actv = activityDate.map(
       (acDate) => new Date(acDate).toISOString().split("T")[0]
     );
 
-    if (validPeriod(start, end, actv)) {
-      // console.log("no activity found");
-    } else {
+    if (!validPeriod(start, end, actv)) {
       let durationMap = activity.map((dr, ind) => {
         let newArr = [];
+
         for (const [key, value] of Object.entries(dr)) {
           newArr.push(value.duration);
         }
 
-        let ddd = newArr.reduce((partialSum, a) => partialSum + a, 0);
+        let newSum = newArr.reduce((partialSum, a) => partialSum + a, 0);
 
-        return ddd;
+        return newSum;
       });
 
       let total = durationMap.reduce((partialSum, a) => partialSum + a, 0);
-      if (total === 0 || total == undefined) return 0;
+
       return total;
     }
   });
 
-  const activityDATE = users.map((user, index) => {
-    let actv = user.traces.map((trs, ind) =>
+  const activityDATE = users.map((user) => {
+    let actvDate = user.traces.map((trs) =>
       new Date(trs.date).toLocaleString("en-us", { weekday: "short" })
     );
-    // setActivityDate(actv);
-    return actv;
+    return actvDate;
   });
 
   return (
@@ -117,29 +98,28 @@ function DriversList({ loading, error }) {
             return (
               <Content key={user.driverID}>
                 <li className="drivers-list-item">
-                  {/* <p> */}
-                  <span className="drivers-list-name">
+                  <div className="drivers-list-name">
                     {user.forename} {user.surname}
-                  </span>
-                  <span className="drivers-list-reg">
+                  </div>
+                  <p className="drivers-list-reg">
                     <img
                       className="drivers-list-reg-icon"
                       src={vehicleStatIcon}
                     />
                     {user.vehicleRegistration}
-                  </span>
+                  </p>
                   <span className="drivers-list-time">
                     <img className="drivers-list-time-icon" src={timeIcon} />
-                    {resultTraces[index]}
-                    {console.log(resultTraces[index])}
+                    <span>
+                      {resultTraces[index] == undefined
+                        ? 0
+                        : resultTraces[index]}
+                    </span>
                   </span>
-                  {/* </p> */}
-
                   <div className="driver-list-calendar">
                     <WeekCalendar
                       users={users}
                       activeDay={activityDATE[index]}
-                      indexX={index}
                     />
                   </div>
                 </li>

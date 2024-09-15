@@ -12,7 +12,7 @@ function WeekCalendar({ activeDay }) {
           <div key={i} className="week-calendar">
             <p className="week-calendar-day"> {day}</p>
             <div className="week-calendar-box">
-              {activeDay.map((type, index) => {
+              {activeDay.map((_, index) => {
                 return (
                   <span key={index}>
                     {active[index] === day ? <img src={redTickIcon} /> : null}
