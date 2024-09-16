@@ -13,7 +13,6 @@
   color: var(--main-color);
   font-family: var(--secondary-font);
   font-weight: bold;
-
   display: inline-flex;
   border-radius: 10px;
   transition: all 0.3s;

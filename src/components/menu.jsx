@@ -6,7 +6,7 @@ import aboutIcon from "../assets/icons/about-icon.svg";
 import { useMenuItems } from "../context/MenuContext";
 import "../styles/menu.css";
 
-function Menu() {
+function Menu({ onClick }) {
   const { menuItems, loading, error } = useMenuItems();
   const icons = [homeIcon, driversIcon, vehiclesIcon, aboutIcon];
 
@@ -21,7 +21,7 @@ function Menu() {
           !error &&
           menuItems.map((item, index) => (
             <li key={index} className="menu-list-item">
-              <NavLink to={item.url}>
+              <NavLink to={item.url} onClick={(index) => onClick(index)}>
                 <img src={icons[index]} />
                 <span>{item.title}</span>
               </NavLink>
