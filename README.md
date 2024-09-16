@@ -1,8 +1,16 @@
-# React + Vite
+# Get the driver app - Logistic UK
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This app provides information about drivers.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- # [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Install Vite $ npm create vite@latest
+
+After, installing Vite in your directory, run npm install.
+
+Run npm run dev or npm run preview
+
+## Usage
+
+In src directory find utils directory.
+Update the BASE_URL with the one provided from Vite, to have the API working fine.
