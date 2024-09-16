@@ -11,7 +11,7 @@ After, installing Vite in your directory, run - npm install - .
 ## Usage
 
 In src directory find utils directory.
-Update the BASE_URL with the one provided from Vite, to have the API working fine.
+In the constants.js file, update the BASE_URL with the one provided from Vite, to have the API working fine.
 
 If you want to run the app in development mode, update the BASE_URL port to 3030
 
