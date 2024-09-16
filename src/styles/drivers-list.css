@@ -1,19 +1,21 @@
 .drivers-list-item {
-  display: flex;
+  display: block;
+}
+.drivers-list-content {
+  display: inline-flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-widget-color);
+  padding-bottom: 1.5rem;
 }
-.drivers-list-item p {
-  display: inline-flex;
-}
+
 .drivers-list-reg-icon {
   max-width: 20px;
 }
-.drivers-list-name {
-  padding-right: 1rem;
-  max-width: 30px;
-  margin-right: 3rem;
-}
+
 .drivers-list-reg {
   display: flex;
   padding: 0 0rem;
@@ -43,27 +45,51 @@
 }
 
 .driver-list-header {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  align-items: center;
+  align-items: flex-start;
+  position: relative;
+}
+.drivers-list-name {
+  font-size: 2rem;
 }
 
 @media (min-width: 768px) {
-  .drivers-list-reg {
-    display: flex;
+  .driver-list-header {
+    display: inline-flex;
     flex-direction: row;
+    align-items: end;
   }
   .drivers-list-time {
-    display: flex;
-    flex-direction: row;
+    padding: 0 3rem;
+  }
+  .drivers-list-item {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .drivers-list-content {
+    margin-bottom: 0;
+    border-bottom: none;
+    width: 60%;
+    padding-bottom: 0;
   }
   .drivers-list-name {
     max-width: 100%;
     margin-right: 0;
+    padding-right: 2rem;
+    font-size: inherit;
   }
   .drivers-list-time-icon {
     margin-right: 0.6rem;
+  }
+}
+@media (min-width: 1024px) {
+  .drivers-list-reg {
+    display: flex;
+    flex-direction: row;
   }
 }
 

@@ -1,8 +1,11 @@
 .search-input-container {
   display: inline-flex;
   background: var(--bg-color-content);
+  border: 1px solid var(--border-widget-color);
   padding: 0.5rem 1rem;
-  border-radius: 15px;
+  border-radius: 10px;
+  width: 100%;
+  position: relative;
 }
 .search-icon {
   width: 15px;
@@ -13,7 +16,18 @@
   border: none;
   background: var(--bg-color-content);
   color: var(--tertiary-list-color);
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: bold;
   font-family: var(--primary-font);
+}
+
+@media (min-width: 768px) {
+  .search-input-container {
+    width: auto;
+    position: absolute;
+    right: 0;
+  }
+  .search-input {
+    font-size: 1.25rem;
+  }
 }

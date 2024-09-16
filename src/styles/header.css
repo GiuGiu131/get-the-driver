@@ -1,7 +1,7 @@
 .header {
   width: 100%;
-  padding: 1.5rem;
-  border-bottom: 3px solid var(--main-color);
+  padding: 2.5rem 1.5rem;
+  border-bottom: 2px solid var(--main-color);
   display: inline-flex;
   justify-content: space-between;
   position: relative;

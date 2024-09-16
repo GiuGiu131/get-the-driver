@@ -6,24 +6,37 @@
 }
 
 .menu-list-item {
-  padding-bottom: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 .menu-list-item a {
   color: var(--main-color);
   font-family: var(--secondary-font);
   font-weight: bold;
-  font-size: 2.4rem;
+
   display: inline-flex;
   border-radius: 10px;
   transition: all 0.3s;
   padding: 0.5rem 1rem;
 }
+.menu-list-item a span {
+  font-size: 2.5rem;
+}
 .menu-list-item a img {
-  padding-right: 1.5rem;
+  padding-right: 1rem;
   transition: all 0.3s;
+  max-width: 35px;
+  width: 30px;
 }
 
 .menu-list-item a:hover {
   background-color: var(--gray-hover-color);
+}
+
+.loading,
+.no-found {
+  color: var(--tertiary-list-color);
+  font-size: 1.4rem;
+  font-weight: bold;
+  font-family: var(--primary-font);
 }

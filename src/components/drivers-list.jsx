@@ -74,7 +74,7 @@ function DriversList({ users, loading, error }) {
     }
   });
 
-  const activityDATE = users.map((user) => {
+  const activityDAY = users.map((user) => {
     let actvDate = user.traces.map((trs) =>
       new Date(trs.date).toLocaleString("en-us", { weekday: "short" })
     );
@@ -98,28 +98,30 @@ function DriversList({ users, loading, error }) {
             return (
               <Content key={user.driverID}>
                 <li className="drivers-list-item">
-                  <div className="drivers-list-name">
-                    {user.forename} {user.surname}
-                  </div>
-                  <p className="drivers-list-reg">
-                    <img
-                      className="drivers-list-reg-icon"
-                      src={vehicleStatIcon}
-                    />
-                    {user.vehicleRegistration}
-                  </p>
-                  <span className="drivers-list-time">
-                    <img className="drivers-list-time-icon" src={timeIcon} />
-                    <span>
-                      {resultTraces[index] == undefined
-                        ? 0
-                        : resultTraces[index]}
+                  <div className="drivers-list-content">
+                    <p className="drivers-list-name">
+                      {user.forename} {user.surname}
+                    </p>
+                    <p className="drivers-list-reg">
+                      <img
+                        className="drivers-list-reg-icon"
+                        src={vehicleStatIcon}
+                      />
+                      {user.vehicleRegistration}
+                    </p>
+                    <span className="drivers-list-time">
+                      <img className="drivers-list-time-icon" src={timeIcon} />
+                      <span>
+                        {resultTraces[index] == undefined
+                          ? 0
+                          : resultTraces[index]}
+                      </span>
                     </span>
-                  </span>
+                  </div>
                   <div className="driver-list-calendar">
                     <WeekCalendar
                       users={users}
-                      activeDay={activityDATE[index]}
+                      activeDay={activityDAY[index]}
                     />
                   </div>
                 </li>

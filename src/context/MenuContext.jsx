@@ -5,24 +5,23 @@ const MenuContext = createContext();
 const MenuProvider = ({ children }) => {
   const [menuItems, setMenuItems] = useState([]);
 
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
     fetchMenuItems()
       .then((res) => {
         setMenuItems(res.data);
+        setLoading(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setError(err);
+      });
   }, []);
 
-  // const getMenuItems = () => {
-  //   fetchMenuItems()
-  //     .then((res) => {
-  //       setMenuItems(res.data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
-
   return (
-    <MenuContext.Provider value={{ menuItems }}>
+    <MenuContext.Provider value={{ menuItems, loading, error }}>
       {children}
     </MenuContext.Provider>
   );

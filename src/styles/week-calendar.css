@@ -4,13 +4,29 @@
 .week-calendar {
   padding: 0 0.5rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-.week-calendar-day {
-  font-size: 1rem;
-}
+
 .week-calendar-box {
   background-color: var(--border-widget-color);
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   border-radius: 6px;
+}
+
+.week-calendar-box img {
+  margin-top: 3px;
+}
+
+@media (min-width: 1024px) {
+  .week-calendar-box {
+    width: 20px;
+    height: 20px;
+  }
+  .week-calendar-box img {
+    margin-top: 0;
+  }
 }
